@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>coverletters.ai</title>
+    <meta property="og:title" content="coverletters.ai" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta property="twitter:card" content="summary_large_image" />
+
+    <style data-tag="reset-style-sheet">
+      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
+    </style>
+    <style data-tag="default-style-sheet">
+      html {
+        font-family: Inter;
+        font-size: 16px;
+      }
+
+      body {
+        font-weight: 400;
+        font-style:normal;
+        text-decoration: none;
+        text-transform: none;
+        letter-spacing: normal;
+        line-height: 1.15;
+        color: var(--dl-color-gray-black);
+        background-color: var(--dl-color-gray-white);
+
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+      data-tag="font"
+    />
+    <!--This is the head section-->
+    <!-- <style> ... </style> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  </head>
+  <body>
+    <div>
+      <link href="{{ url_for('static', filename='css/index.css') }}" rel="stylesheet" />
+
+      <div class="home-container">
+        <header data-thq="thq-navbar" class="home-navbar">
+          <span class="home-logo">
+            <span>coverletters.ai</span>
+            <br />
+          </span>
+          <div
+            data-thq="thq-navbar-nav"
+            data-role="Nav"
+            class="home-desktop-menu"
+          >
+            <nav
+              data-thq="thq-navbar-nav-links"
+              data-role="Nav"
+              class="home-nav"
+            ></nav>
+          </div>
+          <div data-thq="thq-burger-menu" class="home-burger-menu">
+            <button class="button home-button">
+              <svg viewBox="0 0 1024 1024" class="home-icon">
+                <path
+                  d="M128 554.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 298.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 810.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667z"
+                ></path>
+              </svg>
+            </button>
+          </div>
+          <div data-thq="thq-mobile-menu" class="home-mobile-menu">
+            <div
+              data-thq="thq-mobile-menu-nav"
+              data-role="Nav"
+              class="home-nav1"
+            >
+              <div class="home-container1">
+                <span class="home-logo1">Character</span>
+                <div data-thq="thq-close-menu" class="home-menu-close">
+                  <svg viewBox="0 0 1024 1024" class="home-icon2">
+                    <path
+                      d="M810 274l-238 238 238 238-60 60-238-238-238 238-60-60 238-238-238-238 60-60 238 238 238-238z"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+              <nav
+                data-thq="thq-mobile-menu-nav-links"
+                data-role="Nav"
+                class="home-nav2"
+              >
+                <span class="home-text02">About</span>
+                <span class="home-text03">Features</span>
+                <span class="home-text04">Pricing</span>
+                <span class="home-text05">Team</span>
+                <span class="home-text06">Blog</span>
+              </nav>
+              <div class="home-container2">
+                <button class="home-login button">Login</button>
+                <button class="button">Register</button>
+              </div>
+            </div>
+          </div>
+        </header>
+        <section class="home-output-pane">
+          <p class="home-caption4">
+            Check out your generated cover letter here!
+          </p>
+          <textarea
+            placeholder="generated output goes here"
+            class="home-textarea2 textarea"
+          ></textarea>
+        </section>
+        <div class="home-divider"></div>
+        <footer class="home-footer">
+          <div class="home-heading1">
+            <h2 class="home-logo2">coverletters.ai</h2>
+          </div>
+          <span class="home-copyright">
+            © 2023 coverletters.ai All Rights Reserved.
+          </span>
+        </footer>
+      </div>
+    </div>
+    <script
+      data-section-id="navbar"
+      src="https://unpkg.com/@teleporthq/teleport-custom-scripts"
+    ></script>
+  </body>
+</html>
