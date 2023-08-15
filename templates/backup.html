@@ -58,7 +58,15 @@
               class="home-nav"
             ></nav>
           </div>
-          <div data-thq="thq-burger-menu" class="home-burger-menu"></div>
+          <div data-thq="thq-burger-menu" class="home-burger-menu">
+            <button class="button home-button">
+              <svg viewBox="0 0 1024 1024" class="home-icon">
+                <path
+                  d="M128 554.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 298.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 810.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667z"
+                ></path>
+              </svg>
+            </button>
+          </div>
           <div data-thq="thq-mobile-menu" class="home-mobile-menu">
             <div
               data-thq="thq-mobile-menu-nav"
@@ -68,7 +76,7 @@
               <div class="home-container1">
                 <span class="home-logo1">Character</span>
                 <div data-thq="thq-close-menu" class="home-menu-close">
-                  <svg viewBox="0 0 1024 1024" class="home-icon">
+                  <svg viewBox="0 0 1024 1024" class="home-icon2">
                     <path
                       d="M810 274l-238 238 238 238-60 60-238-238-238 238-60-60 238-238-238-238 60-60 238 238 238-238z"
                     ></path>
@@ -107,64 +115,23 @@
           </div>
         </section>
         <section class="home-form">
-          <form method="post" class="home-form1" id="home-form-id">
-            <div id="form-container" class="home-container3">
-              <div id="fields-container" class="home-fields">
-                <div class="home-cv-container">
-                  <label class="home-caption1">CV / Resume Text</label>
-                  <textarea
-                    placeholder="copy-paste your CV here"
-                    name="cvtext"
-                    id="cvtext"
-                    class="home-textarea textarea"
-                  ></textarea>
-                </div>
-                <div class="home-jd-container">
-                  <label class="home-caption2">Job Description</label>
-                  <textarea
-                    placeholder="copy-paste the Job Description here"
-                    type="jdtext"
-                    id="jdtext"
-                    name="jdtext"
-                    class="home-textarea1 textarea"
-                  ></textarea>
-                </div>
-                <div class="home-jd-container1">
-                  <label class="home-caption3">Target Char Count</label>
-                  <input
-                    type="number"
-                    max="3000"
-                    value="500"
-                    required=""
-                    placeholder="output char count"
-                    name="charcount"
-                    id="charcount"
-                    class="home-textinput input"
-                  />
-                </div>
-              </div>
-              <div class="home-button">
-                <button
-                  name="submit-button"
-                  id="submit-button"
-                  class="home-submit button"
-                >
-                  Write me a Cover Letter!
-                </button>
-              </div>
+          <form action="{{ url_for('output') }}" method="POST">
+            <div class="home-cv-container">
+              <label class="home-caption1">CV / Resume Text</label>
+              <textarea name="cvtext" placeholder="copy-paste your CV here" class="home-textarea textarea"></textarea>
+            </div>
+            <div class="home-jd-container">
+              <label class="home-caption2">Job Description</label>
+              <textarea name="jdtext" placeholder="copy-paste the Job Description here" class="home-textarea1 textarea"></textarea>
+            </div>
+            <div class="home-jd-container1">
+              <label class="home-caption3">Target Char Count</label>
+              <input name="targetcharcount" type="number" max="3000" value="500" required="" placeholder="output char count" class="home-textinput input" />
+            </div>
+            <div class="home-button1">
+              <button type="submit" class="home-submit button">Write me a Cover Letter!</button>
             </div>
           </form>
-        </section>
-        <section class="home-output-pane">
-          <p class="home-caption4">
-            Check out the generated cover letter here!
-          </p>
-          <textarea
-            placeholder="generated output goes here"
-            name="outputbox"
-            id="outputbox"
-            class="home-textarea2 textarea"
-          >{{output}}</textarea>
         </section>
         <div class="home-divider"></div>
         <footer class="home-footer">
@@ -177,51 +144,9 @@
         </footer>
       </div>
     </div>
-    <script>
-      document.getElementById("home-form-id").addEventListener("submit", function(event){
-          // event.preventDefault()
-
-          /*
-          // Fetch form to apply custom Bootstrap validation
-          var form = document.getElementById("home-form-id")
-
-          if (form.checkValidity() === false) {
-            event.stopPropagation()
-          } else {
-
-            // Fetch FormData object
-            var formData = new FormData(form)
-
-            // Create an object to hold the form data
-            var object = {}
-
-            // Convert the form data to an object
-            formData.forEach(function(value, key){
-              object[key] = value
-            })
-
-            // Convert the object to a JSON string
-            var json = JSON.stringify(object)
-            console.log(json)
-
-            // Post the data
-            fetch("/", {
-              method: "POST",
-              headers: {
-                'Content-Type': 'application/json'
-              },
-              body: json,
-            })
-          }
-
-          // Make the form valid
-          form.classList.add('was-validated')
-          */
-
-          // Focus on the output text area
-          document.getElementById("outputbox").focus()
-        }
-      );
-    </script>
+    <script
+      data-section-id="navbar"
+      src="https://unpkg.com/@teleporthq/teleport-custom-scripts"
+    ></script>
   </body>
 </html>
