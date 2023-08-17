@@ -1,0 +1,3 @@
+Given the following details in your >>> RESUME <<< and the company ### JOB DESCRIPTION ###, I want you to write an essay about the reason why you should be picked for the position. You are NOT required to use all the information provided in your >>> RESUME <<<.
+
+Focus on deriving insights to create a strong argument that will convince the hiring manager that your skillset and the skill requirements for the job are a great match. Do not make up information that is not provided to you. Do not exceed the {word_count}-word limit. Do not acknowledge or say that you were provided the job description or resume.

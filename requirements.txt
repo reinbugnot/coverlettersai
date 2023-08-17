@@ -1,9 +1,5 @@
-certifi==2021.5.30
-click==7.1.2
-Flask==1.1.2
-gunicorn==20.0.4
-itsdangerous==1.1.0
-Jinja2==2.11.2
-MarkupSafe==2.0.1
-Werkzeug==1.0.1
-wincertstore==0.2
+Flask==2.3.2
+langchain==0.0.266
+numpy==1.25.2
+openai==0.27.8
+pandas==2.0.3
