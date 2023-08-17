@@ -23,7 +23,7 @@ def home():
         
         return render_template('index.html', output=output)
     else:
-        return render_template('index.html', output='Input Error, please try again')
+        return render_template('index.html', output='')
 
 
 if __name__ == '__main__':
