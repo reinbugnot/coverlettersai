@@ -3,6 +3,7 @@ from model.model_functions import get_completion, get_coverletter
 from langchain.llms import OpenAI
 import openai
 import os
+import gunicorn
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
 llm = OpenAI(openai_api_key=openai.api_key)
