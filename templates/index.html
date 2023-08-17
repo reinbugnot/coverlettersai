@@ -33,9 +33,14 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
       data-tag="font"
     />
+
     <!--This is the head section-->
     <!-- <style> ... </style> -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
   </head>
   <body>
     <div>
@@ -149,7 +154,8 @@
                   id="submit-button"
                   class="home-submit button"
                 >
-                  Write me a Cover Letter!
+                  <i class="fa fa-circle-o-notch fa-spin d-none" id="loading-icon" style="display: none;"></i>
+                  <span id="button-text">Write me a Cover Letter!</span>
                 </button>
               </div>
             </div>
@@ -178,50 +184,30 @@
       </div>
     </div>
     <script>
+
+      // Manage Button animations
+      document.getElementById('submit-button').addEventListener('click', function() {
+        // Show spinner and change button text
+        // document.getElementById('loading-icon').classList.remove('d-none');
+        document.getElementById('loading-icon').style.display = 'inline-block';
+        document.getElementById('button-text').innerHTML = 'Generating...';
+
+        // Call get_coverletter function
+        get_coverletter().then(function() {
+          // Hide spinner and change button text back after function finishes
+          // document.getElementById('loading-icon').classList.add('d-none');
+          document.getElementById('loading-icon').style.display = 'none';
+          document.getElementById('button-text').innerHTML = 'Write me a Cover Letter!';
+        });
+        document.getElementById("outputbox").focus()
+      });
+
+      // Manage Outputbox Focusing
       document.getElementById("home-form-id").addEventListener("submit", function(event){
-          // event.preventDefault()
-
-          /*
-          // Fetch form to apply custom Bootstrap validation
-          var form = document.getElementById("home-form-id")
-
-          if (form.checkValidity() === false) {
-            event.stopPropagation()
-          } else {
-
-            // Fetch FormData object
-            var formData = new FormData(form)
-
-            // Create an object to hold the form data
-            var object = {}
-
-            // Convert the form data to an object
-            formData.forEach(function(value, key){
-              object[key] = value
-            })
-
-            // Convert the object to a JSON string
-            var json = JSON.stringify(object)
-            console.log(json)
-
-            // Post the data
-            fetch("/", {
-              method: "POST",
-              headers: {
-                'Content-Type': 'application/json'
-              },
-              body: json,
-            })
-          }
-
-          // Make the form valid
-          form.classList.add('was-validated')
-          */
-
-          // Focus on the output text area
           document.getElementById("outputbox").focus()
         }
       );
+      
     </script>
   </body>
 </html>

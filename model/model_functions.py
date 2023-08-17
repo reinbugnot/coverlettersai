@@ -3,7 +3,7 @@ import os
 import pandas as pd
 import numpy as np
 
-def get_completion(input_prompt, model="gpt-3.5-turbo", temperature = 0.4, system_prompt_fpath = './model/prompt-inventory/system-prompt.txt',):
+def get_completion(input_prompt, model="gpt-3.5-turbo", temperature = 0.8, system_prompt_fpath = './model/prompt-inventory/system-prompt.txt',):
     
     with open(system_prompt_fpath, 'r') as file:
         system_prompt = file.read()
