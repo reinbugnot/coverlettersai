@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, flash
 from model.model_functions import get_completion, get_coverletter
 from langchain.llms import OpenAI
+import subprocess
 from rq import Queue
 from worker import conn
 import openai
@@ -31,4 +32,7 @@ def home():
         return render_template('index.html', output='')
 
 if __name__ == '__main__':
-	app.run(debug=True)
+    app.run(debug=False)
+
+    # Start gunicorn with a custom timeout duration
+    subprocess.call(['gunicorn', '--timeout', '90', 'app:app'])
