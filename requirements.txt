@@ -1,6 +1,8 @@
 Flask==2.3.2
 gunicorn==21.2.0
-langchain==0.0.266
+langchain==0.0.267
 numpy==1.25.2
 openai==0.27.8
 pandas==2.0.3
+rq==1.15.1
+worker==2018.4.1
