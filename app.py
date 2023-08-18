@@ -9,7 +9,7 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 llm = OpenAI(openai_api_key=openai.api_key)
 
 app = Flask(__name__)
-app.secret_key = "manbearpig_MUDMAN888"
+#app.secret_key = "manbearpig_MUDMAN888"
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
