@@ -1,12 +1,15 @@
 from flask import Flask, render_template, request, flash
 from model.model_functions import get_completion, get_coverletter
 from langchain.llms import OpenAI
-import subprocess
+
 from rq import Queue
 from worker import conn
 import openai
 import os
+
 import gunicorn
+import subprocess
+import time
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
 llm = OpenAI(openai_api_key=openai.api_key)
@@ -25,7 +28,11 @@ def home():
         app.logger.info('Generating Cover Letter...')
         job = q.enqueue(get_coverletter, cv, jd, word_count)
 
-        cover_letter = get_coverletter(cv, jd, word_count)
+        # Wait for the task to complete before returning the result to the user
+        while job.result is None:
+            time.sleep(1)
+
+        cover_letter = job.result
 
         return render_template('index.html', output=cover_letter)
     else:
