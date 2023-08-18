@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>coverletters.ai</title>
+    <title>coverletters-ai</title>
+    <link rel="icon" type="image/x-icon" href="static/images/favicon.png">
     <meta property="og:title" content="coverletters.ai" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="utf-8" />
@@ -49,7 +50,7 @@
       <div class="home-container">
         <header data-thq="thq-navbar" class="home-navbar">
           <span class="home-logo">
-            <span>coverletters.ai</span>
+            <span>coverletters-ai</span>
             <br />
           </span>
           <div
@@ -118,10 +119,11 @@
                 <div class="home-cv-container">
                   <label class="home-caption1">CV / Resume Text</label>
                   <textarea
-                    placeholder="copy-paste your CV here"
+                    placeholder="copy-paste your Resume here"
                     name="cvtext"
                     id="cvtext"
                     class="home-textarea textarea"
+                    maxlength="4000"
                   ></textarea>
                 </div>
                 <div class="home-jd-container">
@@ -132,14 +134,15 @@
                     id="jdtext"
                     name="jdtext"
                     class="home-textarea1 textarea"
+                    maxlength="4000"
                   ></textarea>
                 </div>
                 <div class="home-jd-container1">
-                  <label class="home-caption3">Target Char Count</label>
+                  <label class="home-caption3">Word Count</label>
                   <input
                     type="number"
-                    max="3000"
-                    value="500"
+                    max="1000"
+                    value="300"
                     required=""
                     placeholder="output char count"
                     name="charcount"
@@ -175,10 +178,10 @@
         <div class="home-divider"></div>
         <footer class="home-footer">
           <div class="home-heading1">
-            <h2 class="home-logo2">coverletters.ai</h2>
+            <h2 class="home-logo2">coverletters-ai</h2>
           </div>
           <span class="home-copyright">
-            © 2023 coverletters.ai All Rights Reserved.
+            © 2023 coverletters-ai.com All Rights Reserved.
           </span>
         </footer>
       </div>
