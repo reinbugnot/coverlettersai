@@ -4,5 +4,5 @@ langchain==0.0.267
 numpy==1.25.2
 openai==0.27.8
 pandas==2.0.3
+redis==5.0.0
 rq==1.15.1
-worker==2018.4.1
