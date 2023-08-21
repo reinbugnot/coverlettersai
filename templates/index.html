@@ -210,7 +210,39 @@
           document.getElementById("outputbox").focus()
         }
       );
-      
+
+      function checkJobStatus(jobId) {
+          $.ajax({
+              type: 'GET',
+              url: '/results/' + jobId,
+              success: function(data) {
+                  if (data === "Nay!") {
+                      // If the job is not yet finished, wait for a second and then check again
+                      setTimeout(function() {
+                          checkJobStatus(jobId);
+                      }, 1000);
+                  } else {
+                      // If the job is finished, update the UI with the result
+                      $('#outputbox').val(data); // Use .val() instead of .html() for textarea
+                  }
+              }
+          });
+      }
+
+      $(document).ready(function() {
+          $('#submit-button').click(function(e) {
+              e.preventDefault(); // Prevent the form from being submitted normally
+              $.ajax({
+                  type: 'POST',
+                  url: '/',
+                  data: $('#home-form-id').serialize(),
+                  success: function(data) {
+                      checkJobStatus(data.job_id);
+                  }
+              });
+          });
+      });
+
     </script>
   </body>
 </html>
