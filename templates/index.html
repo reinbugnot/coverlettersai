@@ -187,29 +187,30 @@
       </div>
     </div>
     <script>
-
-      // Manage Button animations
-      document.getElementById('submit-button').addEventListener('click', function() {
-        // Show spinner and change button text
-        // document.getElementById('loading-icon').classList.remove('d-none');
-        document.getElementById('loading-icon').style.display = 'inline-block';
-        document.getElementById('button-text').innerHTML = 'Generating...';
-
-        // Call get_coverletter function
-        get_coverletter().then(function() {
-          // Hide spinner and change button text back after function finishes
-          // document.getElementById('loading-icon').classList.add('d-none');
-          document.getElementById('loading-icon').style.display = 'none';
-          document.getElementById('button-text').innerHTML = 'Write me a Cover Letter!';
-        });
-        document.getElementById("outputbox").focus()
-      });
-
       // Manage Outputbox Focusing
       document.getElementById("home-form-id").addEventListener("submit", function(event){
-          document.getElementById("outputbox").focus()
-        }
-      );
+          event.preventDefault(); // Prevent the form from being submitted normally
+
+          // Show spinner and change button text
+          document.getElementById('loading-icon').style.display = 'inline-block';
+          document.getElementById('button-text').innerHTML = 'Generating...';
+
+          $.ajax({
+              type: 'POST',
+              url: '/',
+              data: $('#home-form-id').serialize(),
+              success: function(data) {
+                  var jsonResponse = JSON.parse(data); // Parse the JSON response
+                  var jobId = jsonResponse.job_id; // Get the job_id from the parsed JSON
+                  checkJobStatus(jobId); // Call checkJobStatus() with the obtained job_id
+              },
+              error: function() {
+                  // Hide spinner and change button text back in case of error
+                  document.getElementById('loading-icon').style.display = 'none';
+                  document.getElementById('button-text').innerHTML = 'Write me a Cover Letter!';
+              }
+          });
+      });
 
       function checkJobStatus(jobId) {
           $.ajax({
@@ -222,27 +223,16 @@
                           checkJobStatus(jobId);
                       }, 1000);
                   } else {
-                      // If the job is finished, update the UI with the result
+                      // If the job is finished, update the UI with the result and reset the button
                       $('#outputbox').val(data); // Use .val() instead of .html() for textarea
+
+                      // Hide spinner and change button text back after job is done
+                      document.getElementById('loading-icon').style.display = 'none';
+                      document.getElementById('button-text').innerHTML = 'Write me a Cover Letter!';
                   }
               }
           });
       }
-
-      $(document).ready(function() {
-          $('#submit-button').click(function(e) {
-              e.preventDefault(); // Prevent the form from being submitted normally
-              $.ajax({
-                  type: 'POST',
-                  url: '/',
-                  data: $('#home-form-id').serialize(),
-                  success: function(data) {
-                      checkJobStatus(data.job_id);
-                  }
-              });
-          });
-      });
-
     </script>
   </body>
 </html>
