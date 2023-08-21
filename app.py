@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, flash
+from flask import Flask, render_template, request, flash, jsonify
 from model.model_functions import get_completion, get_coverletter
 from langchain.llms import OpenAI
 
@@ -10,7 +10,6 @@ import os
 import gunicorn
 import subprocess
 import time
-import jsonify
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
 llm = OpenAI(openai_api_key=openai.api_key)
