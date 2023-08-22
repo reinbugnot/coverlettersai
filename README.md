@@ -26,11 +26,7 @@ CoverLetters AI is a powerful web application that streamlines the process of cr
 
 ## Contributing
 
-CoverLetters AI is an open-source project, and contributions are welcome! If you'd like to contribute, please follow the [contribution guidelines](CONTRIBUTING.md).
-
-## License
-
-CoverLetters AI is released under the [MIT License](LICENSE).
+CoverLetters AI is an open-source project, and contributions are welcome!
 
 ---
 
@@ -38,5 +34,5 @@ By leveraging the power of generative AI, CoverLetters AI simplifies the process
 
 For more information, feel free to contact me at reinbugnot@gmail.com.
 
-[![Follow us on GitHub](https://img.shields.io/github/followers/yourusername?label=Follow%20us%20on%20GitHub&style=social)](https://github.com/reinbugnot)
+[![Follow me on GitHub](https://img.shields.io/github/followers/yourusername?label=Follow%20us%20on%20GitHub&style=social)](https://github.com/reinbugnot)
 
